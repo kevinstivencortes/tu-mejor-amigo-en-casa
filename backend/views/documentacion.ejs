@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentacion MachinApp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="page">
+        <header class="header">
+        </header>
+        <div class="presentacion">
+          <span class="hola">Documentacion de: Tu mejor amigo en casa  </span>
+        </div>
+        <div class="requerimientos">
+          <!-- registrar usuario -->
+          <section class="contenido-requerimientos">
+            <div class="requerimiento_funcional">
+              <span class="titulo_requerimiento"> <span>R1 </span>Registro de usuario en la plataforma</span>
+              <span class="descripcion_requerimiento">
+                ● el nombre completo<br>
+                ● correo<br>
+                ● contraseña<br>
+              </span>
+            </div>
+            <table>
+              <tbody>
+                <tr>
+                  <th> ID de requerimiento </th>
+                  <td> RF01 </td>
+                </tr>
+                <tr>
+                  <th> verbo HTTP</th>
+                  <td> <span class="btn post">POST</span> </td>
+                </tr>
+                <tr>
+                  <th> URL </th>
+                  <td> <span class="btn url">http://localhost:3000/usuario/RegistrarUsuario</span> </td>
+                </tr>
+                <tr>
+                  <th> Header </th>
+                  <td> NULL </td>
+                </tr>
+                <tr>
+                  <th>Usuario</th>
+                  <td>Usuario</td>
+                </tr>
+                <tr>
+                  <th>Peticion Body</th>
+                  <td>
+                    json : <pre>
+                        { <br>
+                            "nombre": "daniel", <br>
+                            "correo": "daniel@gmail.com", <br>
+                            "contrasenia": "daniel" <br>
+                        } <br>
+                    </pre>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Respuesta json</th>
+                  <td>
+                    correcto :{ <br>
+                      {<br>
+                        "data": {<br>
+                          "nombre": "daniel",<br>
+                          "correo": "daniel@gmail.com",<br>
+                          "contrasenia": "$2b$08$WLRzc63x4sQzg2AW/Ll7befdkArXNtl/g0NeTXgN1oj9VKBUztW0i",<br>
+                          "_id": "665e4476570b8f39aa075f41",<br>
+                          "__v": 0<br>
+                        }<br>
+                      }<br>
+                    }<br>
+                    incorrecto: {
+                    "Mensaje": "data: usuarioCreado"
+                    } <br>
+                    error : {
+                    "Mensaje": "error: error.message"
+                    } <br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!--login  -->
+          <section class="contenido-requerimientos">
+            <div class="requerimiento_funcional">
+              <span class="titulo_requerimiento"> <span>R2 </span>Login</span>
+              <span class="descripcion_requerimiento">
+                ● correo<br>
+                ● contraseña<br>
+              </span>
+            </div>
+            <table>
+              <tbody>
+                <tr>
+                  <th> ID de requerimiento </th>
+                  <td> RF02 </td>
+                </tr>
+                <tr>
+                  <th> verbo HTTP</th>
+                  <td> <span class="btn post">POST</span> </td>
+                </tr>
+                <tr>
+                  <th> URL </th>
+                  <td> <span class="btn url">http://localhost:3000/Login</span> </td>
+                </tr>
+                <tr>
+                  <th> Header </th>
+                  <td> NULL </td>
+                </tr>
+                <tr>
+                  <th>Usuario</th>
+                  <td>Usuario</td>
+                </tr>
+                <tr>
+                  <th>Peticion Body</th>
+                  <td>
+                    json : <pre>
+                        { <br>
+                            "correo": "daniel@gmail.com", <br>
+                            "contrasenia": "daniel" <br>
+                        } <br>
+                    </pre>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Respuesta json</th>
+                  <td>
+                    correcto :{ <br>
+                      {<br>
+                        "message": "Inicio de sesión exitoso",<br>
+                        "token": "genera token"<br>
+                      }<br>
+                    }<br>
+                    incorrecto: {<br>
+                      message: "Usuario no encontrado" <br>
+                    } <br>
+                    error : {<br>
+                      "Error en el login.js: " + error.message<br>
+                    } <br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        <!--registrar raza  -->
+          <section class="contenido-requerimientos">
+            <div class="requerimiento_funcional">
+              <span class="titulo_requerimiento"> <span>R3 </span>Registrar raza</span>
+              <span class="descripcion_requerimiento">
+                ● nombre <br>
+              </span>
+            </div>
+            <table>
+              <tbody>
+                <tr>
+                  <th> ID de requerimiento </th>
+                  <td> RF03 </td>
+                </tr>
+                <tr>
+                  <th> verbo HTTP</th>
+                  <td> <span class="btn post">POST</span> </td>
+                </tr>
+                <tr>
+                  <th> URL </th>
+                  <td> <span class="btn url">http://localhost:3000/raza/RegistrarRaza</span> </td>
+                </tr>
+                <tr>
+                  <th> Header </th>
+                  <td> NULL </td>
+                </tr>
+                <tr>
+                  <th>Usuario</th>
+                  <td>Administrador</td>
+                </tr>
+                <tr>
+                  <th>Peticion Body</th>
+                  <td>
+                    json : <pre>
+                        { <br>
+                            "nombre": "Angora turco", <br>
+                        } <br>
+                    </pre>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Respuesta json</th>
+                  <td>
+                    correcto :{ <br>
+                      { <br>
+                        "data": { <br>
+                          "nombre": "Angora turco",<br>
+                          "_id": "6655f2b68fc61d6daf06b6c4",<br>
+                          "__v": 0<br>
+                        }<br>
+                      }<br>
+                    }<br>
+                    error : {<br>
+                      error: error.message<br>
+                    } <br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          
+
+          <!--listar raza  -->
+          <section class="contenido-requerimientos">
+            <div class="requerimiento_funcional">
+              <span class="titulo_requerimiento"> <span>R4 </span>listar raza</span>
+              <span class="descripcion_requerimiento">
+                Lo que mostrara: <br>
+                ● Ids <br>
+                ● nombre <br>
+              </span>
+            </div>
+            <table>
+              <tbody>
+                <tr>
+                  <th> ID de requerimiento </th>
+                  <td> RF04 </td>
+                </tr>
+                <tr>
+                  <th> verbo HTTP</th>
+                  <td> <span class="btn get">GET</span> </td>
+                </tr>
+                <tr>
+                  <th> URL </th>
+                  <td> <span class="btn url">http://localhost:3000/raza/ListarRaza</span> </td>
+                </tr>
+                <tr>
+                  <th> Header </th>
+                  <td> NULL </td>
+                </tr>
+                <tr>
+                  <th>Usuario</th>
+                  <td>Administrador</td>
+                </tr>
+                <tr>
+                  <th>Peticion Body</th>
+                  <td>
+                    json : <pre>
+                        
+                    </pre>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Respuesta json</th>
+                  <td>
+                    correcto :{ <br>
+                      {<br>
+                        Muestra lista<br>
+                      }<br>
+                    }<br>
+                    incorrecto:{<br>
+                      error: 'No se encontraron razas'
+                    } <br>
+                    error : {
+                      error: 'Error al listar razas: ' + error.message
+                    } <br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!--registrar categoria  -->
+          <section class="contenido-requerimientos">
+            <div class="requerimiento_funcional">
+              <span class="titulo_requerimiento"> <span>R5 </span>Registrar categoria</span>
+              <span class="descripcion_requerimiento">
+                ● nombre <br>
+              </span>
+            </div>
+            <table>
+              <tbody>
+                <tr>
+                  <th> ID de requerimiento </th>
+                  <td> RF05 </td>
+                </tr>
+                <tr>
+                  <th> verbo HTTP</th>
+                  <td> <span class="btn post">POST</span> </td>
+                </tr>
+                <tr>
+                  <th> URL </th>
+                  <td> <span class="btn url">http://localhost:3000/genero/Registrargenero</span> </td>
+                </tr>
+                <tr>
+                  <th> Header </th>
+                  <td> NULL </td>
+                </tr>
+                <tr>
+                  <th>Usuario</th>
+                  <td>Administrador</td>
+                </tr>
+                <tr>
+                  <th>Peticion Body</th>
+                  <td>
+                    json : <pre>
+                        { <br>
+                          "nombre": "Loro" <br>
+                        } <br>
+                    </pre>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Respuesta json</th>
+                  <td>
+                    correcto :{ <br>
+                      { <br>
+                        "data": {<br>
+                          "nombre": "Loro",<br>
+                          "_id": "6656788598a4310a8b9c1a41",<br>
+                          "__v": 0<br>
+                        }<br>
+                      }<br>
+                    }<br>
+                    error : {
+                      error: error.message
+                    } <br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!--listar categorias  -->
+          <section class="contenido-requerimientos">
+            <div class="requerimiento_funcional">
+              <span class="titulo_requerimiento"> <span>R6 </span>listar categorias</span>
+              <span class="descripcion_requerimiento">
+                Lo que mostrara: <br>
+                ● Ids <br>
+                ● nombre <br>
+              </span>
+            </div>
+            <table>
+              <tbody>
+                <tr>
+                  <th> ID de requerimiento </th>
+                  <td> RF0 </td>
+                </tr>
+                <tr>
+                  <th> verbo HTTP</th>
+                  <td> <span class="btn get">GET</span> </td>
+                </tr>
+                <tr>
+                  <th> URL </th>
+                  <td> <span class="btn url">http://localhost:3000/categoria/ListarCategoria</span> </td>
+                </tr>
+                <tr>
+                  <th> Header </th>
+                  <td> NULL </td>
+                </tr>
+                <tr>
+                  <th>Usuario</th>
+                  <td>Administrador</td>
+                </tr>
+                <tr>
+                  <th>Peticion Body</th>
+                  <td>
+                    json : <pre>
+                        
+                    </pre>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Respuesta json</th>
+                  <td>
+                    correcto :{ <br>
+                      {<br>
+                        Muestra lista<br>
+                      }<br>
+                    }<br>
+                    error : {
+                      error: 'Error al listar Categoria'
+                    } <br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!--registrar genero  -->
+          <section class="contenido-requerimientos">
+            <div class="requerimiento_funcional">
+              <span class="titulo_requerimiento"> <span>R7 </span>Registrar genero</span>
+              <span class="descripcion_requerimiento">
+                ● nombre <br>
+              </span>
+            </div>
+            <table>
+              <tbody>
+                <tr>
+                  <th> ID de requerimiento </th>
+                  <td> RF07 </td>
+                </tr>
+                <tr>
+                  <th> verbo HTTP</th>
+                  <td> <span class="btn post">POST</span> </td>
+                </tr>
+                <tr>
+                  <th> URL </th>
+                  <td> <span class="btn url">http://localhost:3000/genero/Registrargenero</span> </td>
+                </tr>
+                <tr>
+                  <th> Header </th>
+                  <td> NULL </td>
+                </tr>
+                <tr>
+                  <th>Usuario</th>
+                  <td>Administrador</td>
+                </tr>
+                <tr>
+                  <th>Peticion Body</th>
+                  <td>
+                    json : <pre>
+                        { <br>
+                          "nombre": "hembra"<br>
+                        } <br>
+                    </pre>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Respuesta json</th>
+                  <td>
+                    correcto :{ <br>
+                      {<br>
+                        "data": {<br>
+                          "nombre": "hembra",<br>
+                          "_id": "66567a6291633fd4ae50dc55",<br>
+                          "__v": 0<br>
+                        }<br>
+                      }<br>
+                    }<br>
+                    error : {<br>
+                      error: error.message<br>
+                    } <br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!--listar genero  -->
+          <section class="contenido-requerimientos">
+            <div class="requerimiento_funcional">
+              <span class="titulo_requerimiento"> <span>R8 </span>listar genero</span>
+              <span class="descripcion_requerimiento">
+                Lo que mostrara: <br>
+                ● Ids <br>
+                ● nombre <br>
+              </span>
+            </div>
+            <table>
+              <tbody>
+                <tr>
+                  <th> ID de requerimiento </th>
+                  <td> RF08 </td>
+                </tr>
+                <tr>
+                  <th> verbo HTTP</th>
+                  <td> <span class="btn get">GET</span> </td>
+                </tr>
+                <tr>
+                  <th> URL </th>
+                  <td> <span class="btn url">http://localhost:3000/genero/Listargenero</span> </td>
+                </tr>
+                <tr>
+                  <th> Header </th>
+                  <td> NULL </td>
+                </tr>
+                <tr>
+                  <th>Usuario</th>
+                  <td>Administrador</td>
+                </tr>
+                <tr>
+                  <th>Peticion Body</th>
+                  <td>
+                    json : <pre>
+                        
+                    </pre>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Respuesta json</th>
+                  <td>
+                    correcto :{ <br>
+                      {<br>
+                        Muestra lista<br>
+                      }<br>
+                    }<br>
+                    incorrecto:{<br>
+                      error: 'No se encontraron géneros'<br>
+                    } <br>
+                    error : {<br>
+                      error: 'Error al listar géneros: ' + error.message<br>
+                    } <br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!--registrar mascota  -->
+          <section class="contenido-requerimientos">
+            <div class="requerimiento_funcional">
+              <span class="titulo_requerimiento"> <span>R9 </span>Registrar mascota</span>
+              <span class="descripcion_requerimiento">
+                ● nombre <br>
+                ● imagen <br>
+                ● ID categoria <br>
+                ● ID genero<br>
+                ● ID raza <br>
+                
+              </span>
+            </div>
+            <table>
+              <tbody>
+                <tr>
+                  <th> ID de requerimiento </th>
+                  <td> RF09 </td>
+                </tr>
+                <tr>
+                  <th> verbo HTTP</th>
+                  <td> <span class="btn post">POST</span> </td>
+                </tr>
+                <tr>
+                  <th> URL </th>
+                  <td> <span class="btn url">http://localhost:3000/mascota/Registrarmascotas</span> </td>
+                </tr>
+                <tr>
+                  <th> Header </th>
+                  <td> NULL </td>
+                </tr>
+                <tr>
+                  <th>Usuario</th>
+                  <td>usuario</td>
+                </tr>
+                <tr>
+                  <th>Peticion Body</th>
+                  <td>
+                    json : <pre>
+                        { <br>
+                            "nombre": "pandora", <br>
+                            "imagen": "gato.jpg", <br>
+                            "categoria": "66555231ab2b2faeab770dce", <br>
+                            "genero": "665553a5b31fda581f3105a6", <br>
+                            "raza": "6655f2b68fc61d6daf06b6c4", <br>
+                        } <br>
+                    </pre>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Respuesta json</th>
+                  <td>
+                    correcto :{ <br>
+                      {<br>
+                          "message": "La mascota se registró con éxito :)"<br>
+                      }<br>
+                    }
+                    error : {<br>
+                      message: 'Error al registrar la mascota: ' + error.message<br>
+                    } <br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!--listar mascota  -->
+          <section class="contenido-requerimientos">
+            <div class="requerimiento_funcional">
+              <span class="titulo_requerimiento"> <span>R10 </span>listar mascota</span>
+              <span class="descripcion_requerimiento">
+                Lo que mostrara: <br>
+                ● nombre <br>
+                ● imagen <br>
+                ● ID categoria <br>
+                ● ID genero<br>
+                ● ID raza <br>
+              </span>
+            </div>
+            <table>
+              <tbody>
+                <tr>
+                  <th> ID de requerimiento </th>
+                  <td> RF10 </td>
+                </tr>
+                <tr>
+                  <th> verbo HTTP</th>
+                  <td> <span class="btn get">GET</span> </td>
+                </tr>
+                <tr>
+                  <th> URL </th>
+                  <td> <span class="btn url">http://localhost:3000/mascota/Listarmascotas/</span> </td>
+                </tr>
+                <tr>
+                  <th> Header </th>
+                  <td> NULL </td>
+                </tr>
+                <tr>
+                  <th>Usuario</th>
+                  <td>usuario</td>
+                </tr>
+                <tr>
+                  <th>Peticion Body</th>
+                  <td>
+                    json : <pre>
+                        
+                    </pre>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Respuesta json</th>
+                  <td>
+                    correcto :{ <br>
+                      {<br>
+                        Muestra lista<br>
+                      }<br>
+                    }<br>
+                    incorrecto:{<br>
+                      message: 'No se encontraron mascotas'<br>
+                    } <br>
+                    error : {<br>
+                      message: 'Error al listar mascotas: ' + error.message<br>
+                    } <br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <!--listar mascota por ID  -->
+          <section class="contenido-requerimientos">
+            <div class="requerimiento_funcional">
+              <span class="titulo_requerimiento"> <span>R10 </span>listar mascota por ID </span>
+              <span class="descripcion_requerimiento">
+                Lo que mostrara: <br>
+                ● nombre <br>
+                ● imagen <br>
+                ● ID categoria <br>
+                ● ID genero<br>
+                ● ID raza <br>
+              </span>
+            </div>
+            <table>
+              <tbody>
+                <tr>
+                  <th> ID de requerimiento </th>
+                  <td> RF11 </td>
+                </tr>
+                <tr>
+                  <th> verbo HTTP</th>
+                  <td> <span class="btn get">GET</span> </td>
+                </tr>
+                <tr>
+                  <th> URL </th>
+                  <td> <span class="btn url">http://localhost:3000/mascota/Listarmascotas/:id</span> </td>
+                </tr>
+                <tr>
+                  <th> Header </th>
+                  <td> NULL </td>
+                </tr>
+                <tr>
+                  <th>Usuario</th>
+                  <td>usuario</td>
+                </tr>
+                <tr>
+                  <th>Peticion Body</th>
+                  <td>
+                    json : <pre>
+                        
+                    </pre>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Respuesta json</th>
+                  <td>
+                    correcto :{ <br>
+                      {<br>
+                        Muestra mascota<br>
+                      }<br>
+                    }<br>
+                    incorrecto:{<br>
+                      message: 'Mascota no encontrada'<br>
+                    } <br>
+                    error : {
+                      message: 'Error al obtener la mascota: ' + error.message<br>
+                    } <br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+                    <!--actualizar mascota  -->
+                    <section class="contenido-requerimientos">
+                      <div class="requerimiento_funcional">
+                        <span class="titulo_requerimiento"> <span>R11 </span>actualizar mascota</span>
+                        <span class="descripcion_requerimiento">
+                          ● nombre <br>
+                          ● imagen <br>
+                          ● ID categoria <br>
+                          ● ID genero<br>
+                          ● ID raza <br>
+                          
+                        </span>
+                      </div>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <th> ID de requerimiento </th>
+                            <td> RF11 </td>
+                          </tr>
+                          <tr>
+                            <th> verbo HTTP</th>
+                            <td> <span class="btn put">PUT</span> </td>
+                          </tr>
+                          <tr>
+                            <th> URL </th>
+                            <td> <span class="btn url">http://localhost:3000/mascota/ActualizarMascota/:id</span> </td>
+                          </tr>
+                          <tr>
+                            <th> Header </th>
+                            <td> NULL </td>
+                          </tr>
+                          <tr>
+                            <th>Usuario</th>
+                            <td>usuario</td>
+                          </tr>
+                          <tr>
+                            <th>Peticion Body</th>
+                            <td>
+                              json : <pre>
+                                  { <br>
+                                      "nombre": "Lupe", <br>
+                                      "imagen": "pamiño.jpg", <br>
+                                      "categoria": "6656788598a4310a8b9c1a41", <br>
+                                      "genero": "66567a3491633fd4ae50dc50", <br>
+                                      "raza": "664d6aefc014176deb005048", <br>
+                                  } <br>
+                              </pre>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Respuesta json</th>
+                            <td>
+                              correcto :{ <br>
+                                {<br>
+                                  message: 'Mascota actualizada con éxito', data: result <br>
+                                }<br>
+                              }
+                              incorrecto: {<br>
+                                message: 'Mascota no encontrada'<br>
+                              } <br>
+                              error : {
+                                message: 'Error al actualizar la mascota: ' + error.message <br>
+                              } <br>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </section>
+
+                    <!--eliminar mascota  -->
+          <section class="contenido-requerimientos">
+            <div class="requerimiento_funcional">
+              <span class="titulo_requerimiento"> <span>R12 </span>eliminar mascota</span>
+              <span class="descripcion_requerimiento">
+                Lo que mostrara: <br>
+                ● nombre <br>
+                ● imagen <br>
+                ● ID categoria <br>
+                ● ID genero<br>
+                ● ID raza <br>
+              </span>
+            </div>
+            <table>
+              <tbody>
+                <tr>
+                  <th> ID de requerimiento </th>
+                  <td> RF12 </td>
+                </tr>
+                <tr>
+                  <th> verbo HTTP</th>
+                  <td> <span class="btn delete">Delete</span> </td>
+                </tr>
+                <tr>
+                  <th> URL </th>
+                  <td> <span class="btn url">http://localhost:3000/mascota/EliminarMascota/:id</span> </td>
+                </tr>
+                <tr>
+                  <th> Header </th>
+                  <td> NULL </td>
+                </tr>
+                <tr>
+                  <th>Usuario</th>
+                  <td>usuario</td>
+                </tr>
+                <tr>
+                  <th>Peticion Body</th>
+                  <td>
+                    json : <pre>
+                        
+                    </pre>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Respuesta json</th>
+                  <td>
+                    correcto :{ <br>
+                      {<br>
+                        message: 'Mascota eliminada con éxito' <br>
+                      }<br>
+                    }<br>
+                    incorrecto:{<br>
+                      message: 'Mascota no encontrada <br>
+                    } <br>
+                    error : { <br>
+                      message: 'Error al eliminar la mascota: ' + error.message
+                    } <br>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          
