@@ -31,7 +31,7 @@ export const encriptarContrasenia = async(contrasenia) => {
     return contraseniaEncriptada;
 }
 
-/* Login  contrasenia, correo */
+/* Login compara la contrasenia, correo */
 export const compare = async(texto, contraseniaEncriptada) => {
     return await bcrypt.compare(texto, contraseniaEncriptada);
 }

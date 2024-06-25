@@ -5,7 +5,7 @@ import { verificarToken } from '../controllers/Login.js';
 const mascotasMongo = Router();
 
 // Ruta para listar todas las mascotas
-mascotasMongo.get('/Listarmascotas', verificarToken, listarMascotas);
+mascotasMongo.get('/Listarmascotas',verificarToken, listarMascotas);
 
 // Ruta para obtener una mascota por su ID
 mascotasMongo.get('/Listarmascotas/:id', verificarToken, listarMascotaPorId);

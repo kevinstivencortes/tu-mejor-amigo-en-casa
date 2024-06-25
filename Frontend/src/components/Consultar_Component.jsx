@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom"; // Importa useNavigate
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Consultar_Component = () => {
@@ -12,7 +12,7 @@ const Consultar_Component = () => {
         console.log("Token:", token);
         
         if (!token) {
-            navigate('/'); // Redirige si no hay token
+            navigate('/'); 
             return;
         }
 
@@ -29,7 +29,7 @@ const Consultar_Component = () => {
             .catch(error => {
                 console.error("Error al obtener la mascota:", error);
             });
-    }, [id, navigate]); // Asegúrate de incluir navigate en las dependencias
+    }, [id, navigate]);
 
     if (!mascota) {
         return <div>Cargando...</div>;

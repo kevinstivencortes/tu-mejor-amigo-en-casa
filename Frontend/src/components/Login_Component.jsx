@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login_Component = () => {
     const [correo, setCorreo] = useState("");
     const [contrasenia, setContrasenia] = useState("");
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            navigate('/');
+        }
+    }, [navigate]);
 
     const handleLogin = async (e) => {
         e.preventDefault();

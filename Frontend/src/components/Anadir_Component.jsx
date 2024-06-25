@@ -48,7 +48,7 @@ const Anadir_Component = () => {
     }, []);
 
     const handleRegistro = async () => {
-        // Verificar si algún campo está vacío
+        // verificar si algún campo está vacío
         if (!nombre || !categoria || !genero || !raza || !imagen) {
             alert("Los campos deben ser llenados de información. Por favor, llénelos de información para registrar tu mascota.");
             return;
@@ -62,11 +62,11 @@ const Anadir_Component = () => {
             formData.append("raza", raza);
             formData.append("imagen", imagen);
 
-            const token = localStorage.getItem("token"); // Obtener token de localStorage
+            const token = localStorage.getItem("token"); // obtener token de localStorage
             console.log("Token:", token);
             
             if (!token) {
-                history.push('/'); // Redirige si no hay token
+                history.push('/'); 
                 return;
             }
 

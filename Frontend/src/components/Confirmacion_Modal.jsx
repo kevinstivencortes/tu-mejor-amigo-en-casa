@@ -7,7 +7,7 @@ const ConfirmacionModal = ({ show, onConfirm, onCancel }) => {
 
     const confirmarEliminacion = () => {
         onConfirm();
-        onCancel(); // Cerrar el modal después de confirmar
+        onCancel();
     };
 
     return (

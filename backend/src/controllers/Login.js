@@ -4,6 +4,7 @@ import { compare } from "../models/Usuarios_models.js";
 
 const MiLlaveSecreta = "mi_llave_secreta";
 
+/* verifica el token */
 export const verificarToken = (req, res, next) => {
     const authHeader = req.headers['authorization'];
     if (!authHeader) {
@@ -26,7 +27,7 @@ export const verificarToken = (req, res, next) => {
 };
 
 
-
+/* hace el login */
 const Login = async (req, res) => {
     try {
         const { correo, contrasenia } = req.body;
@@ -42,10 +43,10 @@ const Login = async (req, res) => {
             return res.status(400).json({ message: "Contraseña incorrecta" });
         }
 
-        // Generar el token
+        /*  generar el token */
         const token = jwt.sign({ usuario }, MiLlaveSecreta, { expiresIn: '24h' });
 
-        // Enviar token en la respuesta
+        /* Enviar token en la respuesta */
         return res.status(200).json({
             message: "Inicio de sesión exitoso",
             token

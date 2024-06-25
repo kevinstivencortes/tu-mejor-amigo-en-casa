@@ -119,7 +119,7 @@ export const actualizarMascota = async (req, res) => {
         const { id } = req.params;
         const { nombre, categoria, genero, raza } = req.body;
 
-        // Verificar si se cargó una nueva imagen
+        // verificar si se cargó una nueva imagen
         let imagen = '';
         if (req.file) {
             imagen = req.file.filename;
@@ -132,7 +132,7 @@ export const actualizarMascota = async (req, res) => {
         if (raza) updatedFields.raza = raza;
         if (imagen) updatedFields.imagen = imagen;
 
-        // Actualizar la mascota en la base de datos
+        // actualizar la mascota en la base de datos
         const result = await mascotasModels.findByIdAndUpdate(id, { $set: updatedFields }, { new: true });
 
         if (result) {
